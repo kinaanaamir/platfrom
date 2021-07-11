@@ -7,8 +7,8 @@ from torch.utils.data import TensorDataset, DataLoader
 from sklearn.model_selection import train_test_split
 import torch.nn.functional as F
 import numpy as np
-from network import NeuralNetwork
-from attack_network import AttackNetwork
+from membership.network import NeuralNetwork
+from membership.attack_network import AttackNetwork
 
 device = "cuda"
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])

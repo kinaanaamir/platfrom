@@ -7,9 +7,8 @@ from torch.utils.data import TensorDataset, DataLoader
 from sklearn.model_selection import train_test_split
 import torch.nn.functional as F
 import numpy as np
-from shallow_network import ShallowNetwork
-from network import NeuralNetwork
-from attack_network import AttackNetwork
+from membership.shallow_network import ShallowNetwork
+from membership.attack_network import AttackNetwork
 
 device = "cuda"
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
@@ -96,7 +95,7 @@ def test(dataloader, model, path="./model_weights/mnist_net.pth", shallow=False,
 
 
 def get_dataset_for_attack_model(train_load, test_load, s_model, train_bs, test_bs,
-                                 path="./model_weights/mnist_net_shallow_model.pth"):
+                                 path="./membership/model_weights/mnist_net_shallow_model.pth"):
     s_model.load_state_dict(torch.load(path))
     train_tensor1 = torch.zeros([len(train_load.dataset), 3], dtype=torch.float64)
     train_tensor2 = torch.zeros([len(test_load.dataset), 3], dtype=torch.float64)
