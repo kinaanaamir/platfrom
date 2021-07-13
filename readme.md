@@ -1,0 +1,1 @@
+Run main.py file. Once the file has starting running, follow the instructions and press enter after typing the chosen number.

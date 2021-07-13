@@ -18,11 +18,13 @@ if __name__ == '__main__':
             get_image(int(x) - 1)
             a = Image.open("./final_image.png")
             a.show()
+        else:
+            print("Wrong input. Please run again")
     elif x == 2:
         print("Enter 1 for training shadow model otherwise enter any other number")
         x = input()
-        if x == 1:
-            print('training attack and shallow model on mnist dataset ')
+        if int(x) == 1:
+            print('training attack and shadow model on mnist dataset ')
             train_shallow_and_attack_model()
         else:
             print("skipped training for shadow model")
