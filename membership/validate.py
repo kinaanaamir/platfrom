@@ -82,13 +82,14 @@ def get_dataset_for_attack_model(train_load, test_load, s_model, train_bs, test_
                                   batch_size=test_bs, shuffle=True)
     return train_data_loader, test_data_loader
 
+
 def test_membership_model():
     if not os.path.exists("./membership/model_weights"):
         os.mkdir("./membership/model_weights")
     train_loader, test_loader = download_datasets(128, 128)
 
     model = NeuralNetwork().to(device)
-
+    # over here we provide the path for target model
     attack_train_loader, attack_test_loader = get_dataset_for_attack_model(train_loader, test_loader,
                                                                            model,
                                                                            128, 128,
@@ -104,6 +105,7 @@ def test_membership_model():
     total += b
 
     print("Accuracy :", 100 * (correct / total))
+
 
 if __name__ == "__main__":
     test_membership_model()
